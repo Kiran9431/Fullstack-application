@@ -1,0 +1,34 @@
+<h2> Employee List</h2>
+<table class = "table table-striped">
+    
+    <thead>
+        <tr>
+            <th> ID</th>
+            <th> Employee Name </th>
+            <th> Age</th>
+            <th> Designation</th>
+            <th> Role</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <tr *ngFor = "let employee of employees let i=index"  >
+            <td> {{i+1}} </td>
+            <td> {{ employee.employeeName }} </td>
+            <td> {{ employee.age }} </td>
+            <td> {{ employee.designation }} </td>
+            <td> {{ employee.role }} </td>
+            
+            <td>
+                <button (click) = "updateEmployee(employee.empId)" class = "btn btn-info"> Update</button>
+                <button (click) = "deleteEmployee(employee.empId)" class = "btn btn-danger"> Delete</button>
+                <button (click) = "employeeDetails(employee.empId)" class = "btn btn-info"> View</button>
+            </td>
+
+        </tr>
+        <div *ngIf="noDetailsFound">
+             <h6>No employee details found.</h6> 
+          </div>
+    </tbody>
+</table>
